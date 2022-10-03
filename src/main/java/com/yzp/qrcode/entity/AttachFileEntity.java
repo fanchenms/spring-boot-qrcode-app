@@ -53,4 +53,10 @@ public class AttachFileEntity implements Serializable {
     @ApiModelProperty(value = "文件夹")
     private String dir;
 
+    @ApiModelProperty(value = "是否删除 0-未删除 1-已删除 2-回收站")
+    private Integer isDelete;
+
+    @ApiModelProperty(value = "是否压缩 0-未压缩 1-压缩")
+    private Integer isCompress;
+
 }

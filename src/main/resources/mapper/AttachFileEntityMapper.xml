@@ -5,7 +5,7 @@
     <select id="getFileSizeSumForUser" resultType="java.lang.Long">
         SELECT SUM(file_size) AS fileSize
         FROM q_attach_file
-        WHERE user_id = 1
+        WHERE user_id = #{userId}
     </select>
 
 </mapper>

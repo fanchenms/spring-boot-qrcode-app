@@ -1,5 +1,7 @@
 package com.yzp.qrcode.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -18,11 +20,15 @@ import java.io.Serializable;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("picture_style")
+@TableName("q_picture_style")
 @ApiModel(value="PictureStyleEntity对象", description="图片样式表")
 public class PictureStyleEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty(value = "主键id")
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
 
     @ApiModelProperty(value = "二维码信息表id")
     private Long qrCodeInfoId;

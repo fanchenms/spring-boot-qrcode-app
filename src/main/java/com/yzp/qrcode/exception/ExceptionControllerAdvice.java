@@ -64,7 +64,7 @@ public class ExceptionControllerAdvice {
             e.printStackTrace();
             return R.error();
         }
-        Map<String,Object> map = new HashMap<>();
+        Map<String,Object> map = new HashMap<>(16);
         map.put(errorField, "类型：" + in.getTargetType() + "； 无效值：" + in.getValue());
         return R.error(HttpStatus.BAD_REQUEST.value(), "请求参数与实体类字段类型不同")
                 .putData(map);
@@ -77,7 +77,7 @@ public class ExceptionControllerAdvice {
      */
     @ExceptionHandler(QrCodeAppException.class)
     public R handleRuntimeException(QrCodeAppException e) {
-        log.info("运行时异常：code=[{}] msg=[{}]", e.getCode(),e.getMsg());
+        log.info("运行时异常：code=[{}] msg=[{}]", e.getCode(), e.getMsg());
         return R.error(e.getCode(), e.getMsg());
     }
 

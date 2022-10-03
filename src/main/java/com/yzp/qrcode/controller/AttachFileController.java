@@ -39,10 +39,12 @@ public class AttachFileController {
                     @ApiParam(name = "fileName", value = "文件名称", example = "abc")
                         @RequestParam(value = "fileName", required = false) String fileName,
                     @ApiParam(name = "type", value = "文件 1:图片 2:音频 3:视频 4:其他文件", required = true, example = "1")
-                        @RequestParam("type") Integer type) {
+                        @RequestParam("type") Integer type,
+                    @ApiParam(name = "isCompress", value = "是否压缩 0-未压缩 1-压缩 (目前只支持图片压缩,默认压缩;压缩图片画质会变低，但是存储空间变小)", example = "1")
+                        @RequestParam(value = "isCompress", required = false, defaultValue = "1") Integer isCompress) {
         log.info("文件上传 file name {}", file.getOriginalFilename());
         log.info("文件上传 file size {}", file.getSize());
-        UploadVo uploadVo = attachFileService.upload(file, fileName, type);
+        UploadVo uploadVo = attachFileService.upload(file, fileName, type, isCompress);
         return R.success().putData(uploadVo);
     }
 

@@ -8,7 +8,7 @@ spring:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
-  # 数据库
+  #数据库
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
@@ -21,6 +21,11 @@ spring:
       idle-timeout: 10000
       auto-commit: true
       connection-test-query: SELECT 1
+  #日期格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+#  #redis
 #  redis:
 #    timeout: 10000ms
 #    host: localhost

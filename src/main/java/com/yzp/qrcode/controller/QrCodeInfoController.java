@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 /**
  * <p>
@@ -28,7 +29,7 @@ public class QrCodeInfoController {
     private QrCodeInfoService qrCodeInfoService;
 
     @PostMapping("/")
-    public R getQrCodeInfo(@RequestBody QrCodeInfoReqVo requestParam, HttpServletResponse response) {
+    public R getQrCodeInfo(@Valid @RequestBody QrCodeInfoReqVo requestParam, HttpServletResponse response) {
         QrCodeInfoRespVo qrCodeInfoRespVo = qrCodeInfoService.getQrCodeInfo(requestParam, response);
         return R.success(qrCodeInfoRespVo);
     }

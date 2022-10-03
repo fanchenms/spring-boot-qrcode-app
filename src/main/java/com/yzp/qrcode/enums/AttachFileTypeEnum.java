@@ -5,7 +5,7 @@ package com.yzp.qrcode.enums;
  * @version 1.0
  * @date 2022/9/11 - 3:58
  */
-public enum AttachFileType {
+public enum AttachFileTypeEnum {
     /** 1:图片 */
     IMG(1, "图片"),
     /** 2:音频 */
@@ -19,7 +19,7 @@ public enum AttachFileType {
     private final int type;
     private final String describe;
 
-    AttachFileType(int type, String describe) {
+    AttachFileTypeEnum(int type, String describe) {
         this.type = type;
         this.describe = describe;
     }

@@ -42,11 +42,26 @@ public interface PublicConstant {
     /**
      * win系统文件保存路径
      */
-    String WIN_FILE_PATH = "G:\\QRCode\\static\\";
+    String WIN_FILE_PATH = "G:/QRCode/static/";
 
     /**
      * 阿里云对象存储OSS的创建参数
      */
     String OSS_CLIENT_BUILDER = "OSS_CLIENT_BUILDER";
+
+    /**
+     * 永久时间
+     */
+    String PERMANENT_TIME = "9999-01-01 00:00:00";
+
+    /**
+     * 日期格式 年月日时分秒
+     */
+    String DATE_FORMAT_DATE_TIME = "yyyy-MM-dd HH:mm:ss";
+
+    /**
+     * 日期格式 年月日
+     */
+    String DATE_FORMAT_DATE = "yyyy-MM-dd";
 
 }

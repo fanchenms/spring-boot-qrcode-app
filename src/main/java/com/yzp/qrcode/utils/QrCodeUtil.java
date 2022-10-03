@@ -45,7 +45,7 @@ public class QrCodeUtil {
      * @return  BufferedImage
      * @throws Exception    e
      */
-    private static BufferedImage createImage(String content, String imgPath, boolean webImage, boolean needCompress) throws Exception {
+    private static BufferedImage                                                                                                                                                                                                                                                                                                                                                             createImage(String content, String imgPath, boolean webImage, boolean needCompress) throws Exception {
         Hashtable<EncodeHintType, Object> hints = new Hashtable<>();
         /*
          * 误差校正等级，L = ~7% correction、M = ~15% correction、Q = ~25% correction、H = ~30% correction
@@ -198,7 +198,7 @@ public class QrCodeUtil {
      * @param needCompress  是否需要压缩插图
      * @throws Exception
      */
-    public static void encode(String content, String imgPath,boolean webImage, OutputStream output, boolean needCompress)
+    public static void encode(String content, String imgPath, boolean webImage, OutputStream output, boolean needCompress)
             throws Exception {
         BufferedImage image = createImage(content, imgPath, webImage, needCompress);
         ImageIO.write(image, FORMAT_NAME, output);

@@ -3,6 +3,8 @@ package com.yzp.qrcode.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yzp.qrcode.entity.AttachFileEntity;
 import com.yzp.qrcode.vo.UploadVo;
+import com.yzp.qrcode.vo.value.FileUploadObject;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
@@ -22,9 +24,18 @@ public interface AttachFileService extends IService<AttachFileEntity> {
      * @param file 文件
      * @param fileName 文件名称
      * @param type 文件类型
+     * @param isCompress 是否压缩文件
      * @return 文件URL与id
      */
-    UploadVo upload(MultipartFile file, String fileName, Integer type);
+    UploadVo upload(MultipartFile file, String fileName, Integer type, Integer isCompress);
+
+    /**
+     * 文件上传
+     *
+     * @param fileUploadObject 文件上传对象
+     * @return 文件URL与id
+     */
+    UploadVo upload(FileUploadObject fileUploadObject);
 
     /**
      * 压缩图片
@@ -34,4 +45,12 @@ public interface AttachFileService extends IService<AttachFileEntity> {
      * @param response  响应流
      */
     void compressPicture(MultipartFile file, float scale, HttpServletResponse response);
+
+    /**
+     * 根据用户获取他已经使用的存储空间大小
+     * 
+     * @param userId 用户id
+     * @return 文件存储空间size
+     */
+    long getFileSizeSumForUser(Long userId);
 }
